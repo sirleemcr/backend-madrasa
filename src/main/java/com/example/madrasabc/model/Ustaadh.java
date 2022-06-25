@@ -16,6 +16,8 @@ public class Ustaadh {
     @Id
     private Long ustaadh_id;
 
+
+
     private String firstName;
     private String lastName;
     private String middleName;
