@@ -19,6 +19,7 @@ public class Ustaadh {
 
 
     private String firstName;
+
     private String lastName;
     private String middleName;
     private String place;
