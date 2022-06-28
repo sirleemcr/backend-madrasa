@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 
 @Repository
@@ -18,6 +19,10 @@ public interface ImtihaanRepository extends JpaRepository<Imtihaan,Long> {
     List<Result>geStudentsMarks(Long tilmydh_id ,Long fitrah_id);
      @Query(value = "select * from result",nativeQuery = true)
     List<Result> getRes();
+
+    @Query(value="select * from imtihaan where tilmydh_id=?1 and subject_id=?2 and swaful_id=?3",nativeQuery = true)
+    Optional<Imtihaan> geStudent(Long tilmydh_id , Long subject_id,Long swaful_id);
+
 }
 
 

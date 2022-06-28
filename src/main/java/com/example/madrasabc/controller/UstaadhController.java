@@ -1,6 +1,7 @@
 package com.example.madrasabc.controller;
 
 
+import com.example.madrasabc.dto.Setting;
 import com.example.madrasabc.dto.UstaadhAllDto;
 import com.example.madrasabc.dto.UstadhDto;
 
@@ -62,5 +63,10 @@ public class UstaadhController {
     @GetMapping("/email/{email}/password/{password}")
     public Ustaadh getlogins(@PathVariable("email") String email, @PathVariable("password") String password) {
         return ustaadhSerive.login(email, password);
+    }
+
+    @GetMapping("/setting")
+    public  List<Setting> getallsetting(){
+        return ustaadhSerive.getsetting();
     }
 }

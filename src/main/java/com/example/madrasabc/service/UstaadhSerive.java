@@ -1,10 +1,7 @@
 package com.example.madrasabc.service;
 
 
-import com.example.madrasabc.dto.SwafulDto;
-import com.example.madrasabc.dto.SwafullAllDto;
-import com.example.madrasabc.dto.UstaadhAllDto;
-import com.example.madrasabc.dto.UstadhDto;
+import com.example.madrasabc.dto.*;
 import com.example.madrasabc.model.Roles;
 import com.example.madrasabc.model.Swaful;
 import com.example.madrasabc.model.Ustaadh;
@@ -43,5 +40,11 @@ public class UstaadhSerive {
 
     public Ustaadh login(String email,String password){
         return  ustaadhRepository.getlogin(email,password);
+    }
+
+
+
+    public List<Setting> getsetting(){
+        return ustaadhRepository.getSetting();
     }
 }

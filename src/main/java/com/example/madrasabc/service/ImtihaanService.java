@@ -24,7 +24,12 @@ public class ImtihaanService {
     public void addExamMark(List<ImtihaanDto>imtihaanDto){
         for (ImtihaanDto imth : imtihaanDto){
 //              //add imtihaan
+            Optional<Imtihaan> getStude=imtihaanRepository.geStudent(imth.getTilmydh_id(),imth.getSubject_id(),imth.getSwaful_id());
+
             Imtihaan imtihaan=mapper.map(imth,Imtihaan.class);
+            if(getStude.isPresent()){
+                imtihaan.setId(getStude.get().getId());
+            }
 //            imtihaan.setId();
             imtihaanRepository.save(imtihaan);
         }
