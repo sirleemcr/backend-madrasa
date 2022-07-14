@@ -2,6 +2,7 @@ package com.example.madrasabc.controller;
 
 import com.example.madrasabc.dto.ImtihaanAllDto;
 import com.example.madrasabc.dto.ImtihaanDto;
+import com.example.madrasabc.dto.Imtihaanbyustaadh;
 import com.example.madrasabc.dto.Result;
 import com.example.madrasabc.model.Imtihaan;
 import com.example.madrasabc.repository.ImtihaanRepository;
@@ -47,6 +48,11 @@ public class ImtihaanController {
     public ResponseEntity<Imtihaan> updatedImtihan(@RequestBody Imtihaan imtihaa){
         Imtihaan updatedImtihaan = imtihaanRepository.save(imtihaa);
         return ResponseEntity.ok(updatedImtihaan);
+
+  }
+  @GetMapping("byustaadh/{ustaadh_id}")
+  public List<Result> getresult(@PathVariable("ustaadh_id") Long ustaadh_id) {
+    return   imtihaanRepository.get(ustaadh_id);
   }
 
 

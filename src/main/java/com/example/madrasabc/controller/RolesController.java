@@ -11,7 +11,6 @@ import com.example.madrasabc.repository.RolesRepository;
 import com.example.madrasabc.service.RolesService;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -41,5 +40,9 @@ public class RolesController {
     @GetMapping("/role/{id}")
     public Roles getByRoleId(Long role){
         return rolesService.getById(role);
+    }
+    @DeleteMapping("/delete/{id}")
+    public void delete(@PathVariable long id){
+        rolesRepository.deleteById(id);
     }
 }

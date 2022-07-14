@@ -26,6 +26,7 @@ public class UstaadhSerive {
     public void addUstaadh(UstadhDto ustadhDto) {
         Ustaadh ustaadh = mapper.map(ustadhDto, Ustaadh.class);
         List<Roles> roles=rolesRepository.getByRolesId(ustadhDto.getRolesId());
+        ustaadh.setPassword(ustadhDto.getEmail());
         ustaadh.setRolesList(roles);
         ustaadhRepository.save(ustaadh);
     }
